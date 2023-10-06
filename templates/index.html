@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="static/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Price Prediction</title>
+</head>
+<body>
+    <div class="nav">Laptop Price Prediction</div>
+    <center>
+    <p class="result">Price: Rs.{{price}}</p>
+    <form action="/" method="POST">
+        <table>
+            {% for column in columns %}
+            <tr>
+                <td>{{column}}</td>
+                <td>
+                    {% if columns_input_types[column] == 'dropdown' %}
+                    <select name="{{column}}">
+                        {% for unique in uniques[column] %}
+                            {% if placeholder[column] ==  unique %}
+                                <option value="{{unique}}" selected>{{unique}}</option>
+                            {% else %}
+                                <option value="{{unique}}">{{unique}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                    {% elif columns_input_types[column] == 'checkbox' %}
+                        {% if placeholder[column] == 'on' %}
+                        <input type="{{columns_input_types[column]}}" name="{{column}}" checked class="checkbox">
+                        {% else %}
+                        <input type="{{columns_input_types[column]}}" name="{{column}}" class="checkbox">
+                        {% endif %}
+                    {% else %}
+                    <input type="{{columns_input_types[column]}}" name="{{column}}" value="{{placeholder[column]}}">
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+            <tr><td></td><td><input type="submit" class="submit"></td></tr>
+        </table>
+    </form>
+    <div class="footer"></div>
+    </center>
+</body>
+</html>
