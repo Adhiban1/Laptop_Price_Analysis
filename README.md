@@ -1,6 +1,6 @@
 # Laptop Price Prediction
 
-[Kaggle Dataset Link]([Dataset](https://www.kaggle.com/datasets/aemyjutt/laptop-price-analysis))
+[Kaggle Dataset Link](https://www.kaggle.com/datasets/aemyjutt/laptop-price-analysis)
 
 [Docker image](https://hub.docker.com/r/adhiban/laptop_price_prediction)
 
